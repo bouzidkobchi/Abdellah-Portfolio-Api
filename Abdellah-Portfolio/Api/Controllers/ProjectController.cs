@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.ComponentModel.DataAnnotations;
 using Repo = Abdellah_Portfolio.Data.Repositories.ProjectRepository;
 
-namespace Abdellah_Portfolio.Api
+namespace Abdellah_Portfolio.Api.Controllers
 {
     public class ProjectController : Controller
     {
@@ -12,7 +12,7 @@ namespace Abdellah_Portfolio.Api
         public JsonResult Add([Required] string projectName, string about, [Required][Url] string githubUrl)
         {
             // 200
-            var project = new Project { ProjectName = projectName  , About = about , GithubUrl = githubUrl};
+            var project = new Project { ProjectName = projectName, About = about, GithubUrl = githubUrl };
             int projectId = Repo.Add(project);
 
             var response = Json(new

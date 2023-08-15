@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <Folder Include="Media\" />
+    <Folder Include="Db\" />
   </ItemGroup>
 
 </Project>
