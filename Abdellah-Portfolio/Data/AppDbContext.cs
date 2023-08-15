@@ -13,7 +13,10 @@ namespace Abdellah_Portfolio.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            modelBuilder.AddArticleEntity();
+            modelBuilder
+                .AddArticleEntity()
+                .AddUserEntity()
+                .AddProjectEntity();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
