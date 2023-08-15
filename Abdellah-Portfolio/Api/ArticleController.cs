@@ -9,15 +9,36 @@ namespace Abdellah_Portfolio.Api
     {
         [ProducesResponseType(StatusCodes.Status200OK)]
         [HttpPost("/articles")]
-        public JsonResult Add([Required] string title , string description ,[Required] string content /* ,  picture form */)
+        public JsonResult Add([Required] string title , string description ,[Required] string content , IFormFile picture )
         {
+            JsonResult response;
+            // 400
+            // save the picture :
+            string extension = picture.FileName.Split('.').Last();
+            var allowedExtensions = new string[] { "png", "jpg", "jpeg"};
+            if (!allowedExtensions.Contains(extension)) 
+            {
+                response = Json(new
+                {
+                    message = "file extension not supported ."
+                });
+                response.StatusCode = 400;
+                return response;
+            }
+
             // 200
-            var article = new Article { Title = title , Description = description , Content = content };
+            string picturePath = Path.Combine(Path.GetFullPath("Media"), DateTime.Now.ToString("DD-MM-yyyy HH-mm-ss ") + picture.FileName);
+            var stream = System.IO.File.Create(picturePath);
+            picture.CopyTo(stream);
+            stream.Close();
+
+            var article = new Article { Title = title , Description = description , Content = content , PicturePath = picturePath};
             int articleId = Repo.Add(article);
 
-            var response = Json(new
+            response = Json(new
             {
-                message = "article added successfuly ."
+                message = "article added successfuly .",
+                articleId
             });
             response.StatusCode = 200;
             return response;

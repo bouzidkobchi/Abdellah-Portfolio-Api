@@ -49,7 +49,7 @@ namespace Abdellah_Portfolio.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Articles");
+                    b.ToTable("Articles", (string)null);
                 });
 
             modelBuilder.Entity("Abdellah_Portfolio.Data.Entities.Project", b =>
@@ -75,7 +75,7 @@ namespace Abdellah_Portfolio.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Projects");
+                    b.ToTable("Projects", (string)null);
                 });
 #pragma warning restore 612, 618
         }
