@@ -17,7 +17,8 @@ namespace Abdellah_Portfolio.Api.Controllers
 
             var response = Json(new
             {
-                message = "project added successfuly ."
+                message = "project added successfuly ." ,
+                projectId
             });
             response.StatusCode = 200;
             return response;

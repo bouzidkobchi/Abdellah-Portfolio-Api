@@ -8,22 +8,26 @@ namespace Abdellah_Portfolio.Api.Controllers
     public class ArticleController : Controller
     {
         [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [HttpPost("/articles")]
         public JsonResult Add([Required] string title, string description, [Required] string content, IFormFile picture)
         {
             JsonResult response;
             // 400
             // save the picture :
-            string extension = picture.FileName.Split('.').Last();
-            var allowedExtensions = new string[] { "png", "jpg", "jpeg" };
-            if (!allowedExtensions.Contains(extension))
+            if(picture is not null)
             {
-                response = Json(new
+                string extension = picture.FileName.Split('.').Last();
+                var allowedExtensions = new string[] { "png", "jpg", "jpeg" };
+                if (!allowedExtensions.Contains(extension))
                 {
-                    message = "file extension not supported ."
-                });
-                response.StatusCode = 400;
-                return response;
+                    response = Json(new
+                    {
+                        message = "file extension not supported ."
+                    });
+                    response.StatusCode = 400;
+                    return response;
+                }
             }
 
             // 200
