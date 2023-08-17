@@ -10,9 +10,9 @@ namespace Abdellah_Portfolio.Data.Tools
         {
             return hasher.HashPassword(user, password);
         }
-        public static bool VerifyPasswordHash(User user , string passwordhash, string password)
+        public static bool VerifyPasswordHash(User user, string password)
         {
-            return hasher.VerifyHashedPassword(user, passwordhash , password) == PasswordVerificationResult.Success ? true : false ;
+            return hasher.VerifyHashedPassword(user, user.PasswordHash , password) == PasswordVerificationResult.Success ? true : false ;
         }
     }
 }
