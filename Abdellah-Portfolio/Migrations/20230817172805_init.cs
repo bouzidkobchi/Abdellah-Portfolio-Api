@@ -32,15 +32,35 @@ namespace Abdellah_Portfolio.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    ProjectName = table.Column<string>(type: "TEXT", nullable: false),
-                    About = table.Column<string>(type: "TEXT", nullable: false),
-                    GithubUrl = table.Column<string>(type: "TEXT", nullable: false),
+                    ProjectName = table.Column<string>(type: "TEXT", maxLength: 50, nullable: false),
+                    About = table.Column<string>(type: "TEXT", maxLength: 1000, nullable: false),
+                    GithubUrl = table.Column<string>(type: "TEXT", maxLength: 200, nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Projects", x => x.Id);
                 });
+
+            migrationBuilder.CreateTable(
+                name: "Users",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    UserName = table.Column<string>(type: "TEXT", maxLength: 50, nullable: false),
+                    PasswordHash = table.Column<string>(type: "TEXT", maxLength: 250, nullable: false),
+                    CreatedAt = table.Column<DateTime>(type: "TEXT", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Users", x => x.Id);
+                });
+
+            migrationBuilder.InsertData(
+                table: "Users",
+                columns: new[] { "Id", "CreatedAt", "PasswordHash", "UserName" },
+                values: new object[] { 1, new DateTime(2023, 8, 17, 18, 28, 5, 595, DateTimeKind.Local).AddTicks(7724), "", "abdellah bechraire" });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -50,6 +70,9 @@ namespace Abdellah_Portfolio.Migrations
 
             migrationBuilder.DropTable(
                 name: "Projects");
+
+            migrationBuilder.DropTable(
+                name: "Users");
         }
     }
 }

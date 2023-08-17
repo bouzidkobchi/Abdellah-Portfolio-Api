@@ -102,13 +102,13 @@ namespace Abdellah_Portfolio.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("User");
+                    b.ToTable("Users");
 
                     b.HasData(
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2023, 8, 15, 18, 8, 13, 397, DateTimeKind.Local).AddTicks(6560),
+                            CreatedAt = new DateTime(2023, 8, 17, 18, 28, 5, 595, DateTimeKind.Local).AddTicks(7724),
                             PasswordHash = "",
                             UserName = "abdellah bechraire"
                         });
