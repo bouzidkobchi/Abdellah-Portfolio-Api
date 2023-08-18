@@ -43,7 +43,7 @@ namespace Abdellah_Portfolio.Api.Controllers
             {
                 message = "login successed"
             });
-            Response.Cookies.Append("key", "kobchi"); // login cookie
+            Response.Cookies.Append("key", UserRepository.GetKey()); // login cookie
             return response;
         }
 
@@ -52,8 +52,7 @@ namespace Abdellah_Portfolio.Api.Controllers
         {
             // 200
             JsonResult response;
-            string? value;
-            if(Request.Cookies.TryGetValue("key" , out value))
+            if(Auth.IsLogin(Request))
             {
                 Response.Cookies.Delete("key");
                 response = Json(new
@@ -63,6 +62,8 @@ namespace Abdellah_Portfolio.Api.Controllers
             }
             else
             {
+                if(Request.Cookies.ContainsKey("key")) Response.Cookies.Delete("key");
+
                 response = Json(new
                 {
                     message = "you are already logout"

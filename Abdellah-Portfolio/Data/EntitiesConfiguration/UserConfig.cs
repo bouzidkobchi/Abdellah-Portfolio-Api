@@ -23,7 +23,13 @@ namespace Abdellah_Portfolio.Data.EntitiesConfiguration
 
             UserEntity.HasData
                 (
-                    new User { Id = 1 , UserName = "abdellah bechraire" , CreatedAt = DateTime.Now , PasswordHash = config.GetSection("RootUserPasswordHash").Value }
+                    new User 
+                    {
+                            Id = 1 , 
+                            UserName = "abdellah bechraire" , 
+                            CreatedAt = DateTime.Now , 
+                            PasswordHash = config.GetSection("RootUserPasswordHash").Value ,
+                    }
                 );
 
             return modelBuilder;

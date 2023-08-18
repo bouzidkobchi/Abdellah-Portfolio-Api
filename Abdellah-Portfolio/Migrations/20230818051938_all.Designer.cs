@@ -3,6 +3,7 @@ using System;
 using Abdellah_Portfolio.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Abdellah_Portfolio.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230818051938_all")]
+    partial class all
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "6.0.21");
@@ -112,9 +114,9 @@ namespace Abdellah_Portfolio.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2023, 8, 18, 6, 20, 49, 152, DateTimeKind.Local).AddTicks(7694),
-                            PasswordHash = "AQAAAAEAACcQAAAAEEbixmlN3jVIJvWwbLCgt2A9UgYsJ7ek/EBMlc4o550htLTBzsyKcioww2qMYrn66Q==",
-                            SecurityStamp = "6a8a9192-9d8e-4be5-aca2-a64533ea9f03",
+                            CreatedAt = new DateTime(2023, 8, 18, 6, 19, 38, 634, DateTimeKind.Local).AddTicks(1656),
+                            PasswordHash = "",
+                            SecurityStamp = "1640fcf8-967b-45ee-9fd4-283364f62847",
                             UserName = "abdellah bechraire"
                         });
                 });

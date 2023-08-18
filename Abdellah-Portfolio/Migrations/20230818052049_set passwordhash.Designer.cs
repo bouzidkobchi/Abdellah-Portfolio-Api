@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Abdellah_Portfolio.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230817172805_init")]
-    partial class init
+    [Migration("20230818052049_set passwordhash")]
+    partial class setpasswordhash
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -97,6 +97,10 @@ namespace Abdellah_Portfolio.Migrations
                         .HasMaxLength(250)
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("SecurityStamp")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("UserName")
                         .IsRequired()
                         .HasMaxLength(50)
@@ -110,8 +114,9 @@ namespace Abdellah_Portfolio.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2023, 8, 17, 18, 28, 5, 595, DateTimeKind.Local).AddTicks(7724),
-                            PasswordHash = "",
+                            CreatedAt = new DateTime(2023, 8, 18, 6, 20, 49, 152, DateTimeKind.Local).AddTicks(7694),
+                            PasswordHash = "AQAAAAEAACcQAAAAEEbixmlN3jVIJvWwbLCgt2A9UgYsJ7ek/EBMlc4o550htLTBzsyKcioww2qMYrn66Q==",
+                            SecurityStamp = "6a8a9192-9d8e-4be5-aca2-a64533ea9f03",
                             UserName = "abdellah bechraire"
                         });
                 });

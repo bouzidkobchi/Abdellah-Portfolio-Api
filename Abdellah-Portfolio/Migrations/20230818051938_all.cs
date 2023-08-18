@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Abdellah_Portfolio.Migrations
 {
-    public partial class init : Migration
+    public partial class all : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -50,7 +50,8 @@ namespace Abdellah_Portfolio.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     UserName = table.Column<string>(type: "TEXT", maxLength: 50, nullable: false),
                     PasswordHash = table.Column<string>(type: "TEXT", maxLength: 250, nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "TEXT", nullable: false)
+                    CreatedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    SecurityStamp = table.Column<string>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -59,8 +60,8 @@ namespace Abdellah_Portfolio.Migrations
 
             migrationBuilder.InsertData(
                 table: "Users",
-                columns: new[] { "Id", "CreatedAt", "PasswordHash", "UserName" },
-                values: new object[] { 1, new DateTime(2023, 8, 17, 18, 28, 5, 595, DateTimeKind.Local).AddTicks(7724), "", "abdellah bechraire" });
+                columns: new[] { "Id", "CreatedAt", "PasswordHash", "SecurityStamp", "UserName" },
+                values: new object[] { 1, new DateTime(2023, 8, 18, 6, 19, 38, 634, DateTimeKind.Local).AddTicks(1656), "", "1640fcf8-967b-45ee-9fd4-283364f62847", "abdellah bechraire" });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
