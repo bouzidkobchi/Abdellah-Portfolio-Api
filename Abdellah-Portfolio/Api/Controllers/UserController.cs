@@ -6,7 +6,6 @@ namespace Abdellah_Portfolio.Api.Controllers
 {
     public class UserController : Controller
     {
-        // need to config
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status200OK)]
@@ -16,7 +15,7 @@ namespace Abdellah_Portfolio.Api.Controllers
             JsonResult response;
             
             // 400
-            if(username is null || password is null )
+            if(username is null || password is null)
             {
                 response = Json(new
                 {
@@ -43,7 +42,12 @@ namespace Abdellah_Portfolio.Api.Controllers
             {
                 message = "login successed"
             });
-            Response.Cookies.Append("key", UserRepository.GetKey()); // login cookie
+
+            Response.Cookies.Append("key", UserRepository.UpdateToken() , new CookieOptions
+            {
+                MaxAge = new TimeSpan(100,0,0,0)
+            });
+
             return response;
         }
 
@@ -121,11 +125,6 @@ namespace Abdellah_Portfolio.Api.Controllers
             response.StatusCode = 401;
             return response;
         }
-
-        // public login (done)
-        // public logout (done)
-        // public change user name (done)
-        // public change password (done)
 
     }
 }

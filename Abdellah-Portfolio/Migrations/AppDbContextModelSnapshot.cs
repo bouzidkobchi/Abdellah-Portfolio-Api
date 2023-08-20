@@ -33,7 +33,6 @@ namespace Abdellah_Portfolio.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Description")
-                        .IsRequired()
                         .IsUnicode(true)
                         .HasColumnType("TEXT");
 
@@ -112,10 +111,10 @@ namespace Abdellah_Portfolio.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2023, 8, 18, 6, 20, 49, 152, DateTimeKind.Local).AddTicks(7694),
+                            CreatedAt = new DateTime(2023, 8, 20, 20, 19, 51, 780, DateTimeKind.Local).AddTicks(9469),
                             PasswordHash = "AQAAAAEAACcQAAAAEEbixmlN3jVIJvWwbLCgt2A9UgYsJ7ek/EBMlc4o550htLTBzsyKcioww2qMYrn66Q==",
-                            SecurityStamp = "6a8a9192-9d8e-4be5-aca2-a64533ea9f03",
-                            UserName = "abdellah bechraire"
+                            SecurityStamp = "22ebaffb-22ff-4a6a-983f-c7ed5284a679",
+                            UserName = "abdellah becheraire"
                         });
                 });
 #pragma warning restore 612, 618

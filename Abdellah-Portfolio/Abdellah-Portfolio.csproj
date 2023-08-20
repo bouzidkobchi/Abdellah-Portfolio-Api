@@ -11,6 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="MailKit" Version="4.1.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="6.0.21" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.21">
       <PrivateAssets>all</PrivateAssets>
@@ -21,8 +22,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Media\" />
     <Folder Include="Db\" />
+    <Folder Include="wwwroot\media\" />
   </ItemGroup>
 
 </Project>

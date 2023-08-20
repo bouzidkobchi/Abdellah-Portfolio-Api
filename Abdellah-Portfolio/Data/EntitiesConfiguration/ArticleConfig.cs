@@ -17,7 +17,8 @@ namespace Abdellah_Portfolio.Data.EntitiesConfiguration
 
             // Description :
             ArticleEntity.Property(A => A.Description)
-                .IsUnicode() ;
+                .IsUnicode()
+                .IsRequired(false);
 
             // Content :
             ArticleEntity.Property(A => A.Content)

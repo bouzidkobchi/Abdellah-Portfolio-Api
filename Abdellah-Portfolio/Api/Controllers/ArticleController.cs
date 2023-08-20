@@ -18,7 +18,7 @@ namespace Abdellah_Portfolio.Api.Controllers
             if(picture is not null)
             {
                 string extension = picture.FileName.Split('.').Last();
-                var allowedExtensions = new string[] { "png", "jpg", "jpeg" };
+                var allowedExtensions = new string[] { "png", "jpg", "jpeg" , "gif" };
                 if (!allowedExtensions.Contains(extension))
                 {
                     response = Json(new
@@ -28,12 +28,14 @@ namespace Abdellah_Portfolio.Api.Controllers
                     response.StatusCode = 400;
                     return response;
                 }
+                
             }
 
-            // 200
-            string picturePath = Path.Combine(Path.GetFullPath("Media"), DateTime.Now.ToString("DD-MM-yyyy HH-mm-ss ") + picture.FileName);
-            var stream = System.IO.File.Create(picturePath);
+            // 200 // Path.Combine(Path.GetFullPath("Media")
+            string? picturePath = picture is null ? null : "media/" + DateTime.Now.ToString("dd-MM-yyyy HH-mm-ss ") + picture.FileName ;
+            var stream = System.IO.File.Create("wwwroot/" + picturePath);
             picture.CopyTo(stream);
+
             stream.Close();
 
             var article = new Article { Title = title, Description = description, Content = content, PicturePath = picturePath };

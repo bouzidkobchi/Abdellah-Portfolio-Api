@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Abdellah_Portfolio.Migrations
 {
-    public partial class all : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -16,7 +16,7 @@ namespace Abdellah_Portfolio.Migrations
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Title = table.Column<string>(type: "TEXT", maxLength: 100, nullable: false),
-                    Description = table.Column<string>(type: "TEXT", nullable: false),
+                    Description = table.Column<string>(type: "TEXT", nullable: true),
                     Content = table.Column<string>(type: "TEXT", maxLength: 1000, nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
                     PicturePath = table.Column<string>(type: "TEXT", maxLength: 100, nullable: true)
@@ -61,7 +61,7 @@ namespace Abdellah_Portfolio.Migrations
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "Id", "CreatedAt", "PasswordHash", "SecurityStamp", "UserName" },
-                values: new object[] { 1, new DateTime(2023, 8, 18, 6, 19, 38, 634, DateTimeKind.Local).AddTicks(1656), "", "1640fcf8-967b-45ee-9fd4-283364f62847", "abdellah bechraire" });
+                values: new object[] { 1, new DateTime(2023, 8, 20, 20, 19, 51, 780, DateTimeKind.Local).AddTicks(9469), "AQAAAAEAACcQAAAAEEbixmlN3jVIJvWwbLCgt2A9UgYsJ7ek/EBMlc4o550htLTBzsyKcioww2qMYrn66Q==", "22ebaffb-22ff-4a6a-983f-c7ed5284a679", "abdellah becheraire" });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

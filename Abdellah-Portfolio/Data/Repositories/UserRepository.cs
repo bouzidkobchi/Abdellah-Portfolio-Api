@@ -6,11 +6,6 @@ namespace Abdellah_Portfolio.Data.Repositories
     public static class UserRepository
     {
         private static AppDbContext _context = new AppDbContext();
-        // change password
-        // change username
-        // get username
-        // get password
-        // add scurity stamp
         public static void ChangePassword(string newPassword)
         {
             var user = _context.Users.First();
@@ -33,6 +28,14 @@ namespace Abdellah_Portfolio.Data.Repositories
         public static string GetKey()
         {
             return _context.Users.First().SecurityStamp;
+        }
+
+        public static string UpdateToken()
+        {
+            string NewToken = Guid.NewGuid().ToString();
+            _context.Users.First().SecurityStamp = NewToken;
+            _context.SaveChanges();
+            return NewToken;
         }
     }
 }

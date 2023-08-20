@@ -26,7 +26,7 @@ namespace Abdellah_Portfolio.Data.EntitiesConfiguration
                     new User 
                     {
                             Id = 1 , 
-                            UserName = "abdellah bechraire" , 
+                            UserName = "abdellah becheraire" , 
                             CreatedAt = DateTime.Now , 
                             PasswordHash = config.GetSection("RootUserPasswordHash").Value ,
                     }
