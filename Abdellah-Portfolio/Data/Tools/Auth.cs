@@ -1,4 +1,5 @@
 ﻿using Abdellah_Portfolio.Data.Repositories;
+using Microsoft.AspNetCore.Identity;
 
 namespace Abdellah_Portfolio.Data.Tools
 {
@@ -16,6 +17,14 @@ namespace Abdellah_Portfolio.Data.Tools
                 }
             }
             return false;
+        }
+
+        public static void Login(HttpResponse Response)
+        {
+            Response.Cookies.Append("key", UserRepository.UpdateToken(), new CookieOptions
+            {
+                MaxAge = new TimeSpan(100, 0, 0, 0)
+            });
         }
     }
 }
