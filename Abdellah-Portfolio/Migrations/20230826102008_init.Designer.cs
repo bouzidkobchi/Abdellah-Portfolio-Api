@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Abdellah_Portfolio.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230820191951_init")]
+    [Migration("20230826102008_init")]
     partial class init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -113,9 +113,9 @@ namespace Abdellah_Portfolio.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2023, 8, 20, 20, 19, 51, 780, DateTimeKind.Local).AddTicks(9469),
-                            PasswordHash = "AQAAAAEAACcQAAAAEEbixmlN3jVIJvWwbLCgt2A9UgYsJ7ek/EBMlc4o550htLTBzsyKcioww2qMYrn66Q==",
-                            SecurityStamp = "22ebaffb-22ff-4a6a-983f-c7ed5284a679",
+                            CreatedAt = new DateTime(2023, 8, 26, 11, 20, 8, 517, DateTimeKind.Local).AddTicks(481),
+                            PasswordHash = "AQAAAAEAACcQAAAAEBShrV+dz0FDid49LawVsrPXiTbk+KSceEjja8hbXQgJwmOpfbKV5gzes7cvNDcosA==",
+                            SecurityStamp = "ec88723d-ccb1-4bab-b9dc-e37a4b5e410c",
                             UserName = "abdellah becheraire"
                         });
                 });

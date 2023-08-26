@@ -28,7 +28,7 @@ namespace Abdellah_Portfolio.Data
                 .AddJsonFile("appsettings.json")
                 .Build();
 
-            string connectionString = config.GetSection("ConnectionStrings").GetSection("sqlite").Value;
+            string connectionString = config.GetSection("ConnectionStrings").GetSection("SqlServer").Value;
 
             optionsBuilder.UseSqlite(connectionString);
         }

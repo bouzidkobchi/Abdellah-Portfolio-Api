@@ -61,7 +61,7 @@ namespace Abdellah_Portfolio.Migrations
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "Id", "CreatedAt", "PasswordHash", "SecurityStamp", "UserName" },
-                values: new object[] { 1, new DateTime(2023, 8, 20, 20, 19, 51, 780, DateTimeKind.Local).AddTicks(9469), "AQAAAAEAACcQAAAAEEbixmlN3jVIJvWwbLCgt2A9UgYsJ7ek/EBMlc4o550htLTBzsyKcioww2qMYrn66Q==", "22ebaffb-22ff-4a6a-983f-c7ed5284a679", "abdellah becheraire" });
+                values: new object[] { 1, new DateTime(2023, 8, 26, 11, 20, 8, 517, DateTimeKind.Local).AddTicks(481), "AQAAAAEAACcQAAAAEBShrV+dz0FDid49LawVsrPXiTbk+KSceEjja8hbXQgJwmOpfbKV5gzes7cvNDcosA==", "ec88723d-ccb1-4bab-b9dc-e37a4b5e410c", "abdellah becheraire" });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
