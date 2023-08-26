@@ -43,7 +43,10 @@ namespace Abdellah_Portfolio.Api.Controllers
                 message = "login successed"
             });
 
-            Auth.Login(Response);
+            Response.Cookies.Append("key", UserRepository.UpdateToken() , new CookieOptions
+            {
+                MaxAge = new TimeSpan(100,0,0,0)
+            });
 
             return response;
         }
